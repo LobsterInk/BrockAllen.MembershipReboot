@@ -2673,6 +2673,10 @@ namespace BrockAllen.MembershipReboot
         {
             if (claim == null) throw new ArgumentNullException("claim");
 
+            if (claim.Type == "given_name" && claim.Value != account.FirstName)
+                account.FirstName = claim.Value;
+            if (claim.Type == "family_name" && claim.Value != account.LastName)
+                account.LastName = claim.Value;
             if (!account.HasClaim(claim.Type, claim.Value))
             {
                 account.AddClaim(claim);
