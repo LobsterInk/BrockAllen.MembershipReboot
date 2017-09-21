@@ -46,6 +46,7 @@
     <Compile Include="AccountService\PasswordResetQuestionAnswer.cs" />
     <Compile Include="AccountService\UserAccountCommands.cs" />
     <Compile Include="AccountService\UserAccountValidator.cs" />
+    <Compile Include="Account\IDateCreatedUpdated.cs" />
     <Compile Include="Account\LinkedAccountClaim.cs" />
     <Compile Include="Account\Relational\RelationalLinkedAccountClaim.cs" />
     <Compile Include="Account\Relational\RelationalLinkedAccount.cs" />

@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace BrockAllen.MembershipReboot
 {
-    public class UserClaim
+    public class UserClaim : IDateCreatedUpdated
     {
         public UserClaim()
         {
@@ -30,9 +30,11 @@ namespace BrockAllen.MembershipReboot
         [Required]
         public virtual string Type { get; protected internal set; }
         
-        [StringLength(150)]
+        [StringLength(2038)]
         [Required]
         public virtual string Value { get; protected internal set; }
+        public virtual DateTimeOffset? Created { get; set; }
+        public virtual DateTimeOffset? LastUpdated { get; set; }
     }
 
     public class UserClaimComparer : IComparer, IComparer<UserClaim>
