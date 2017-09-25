@@ -24,6 +24,10 @@ namespace BrockAllen.MembershipReboot
         [Required]
         public virtual string Username { get; protected internal set; }
 
+        [StringLength(254)]
+        public virtual string FirstName { get; set; }
+        [StringLength(254)]
+        public virtual string LastName { get; set; }
         public virtual DateTime Created { get; protected internal set; }
         public virtual DateTime LastUpdated { get; protected internal set; }
         public virtual bool IsAccountApproved { get { return AccountApproved.HasValue; } }
