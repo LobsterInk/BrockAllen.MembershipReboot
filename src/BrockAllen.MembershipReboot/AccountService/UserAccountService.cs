@@ -440,7 +440,7 @@ namespace BrockAllen.MembershipReboot
             return this.userRepository.Create();
         }
 
-        public virtual TAccount CreateAccount(string tenant, string username, string password, string email, Guid? id = null, DateTime? dateCreated = null, TAccount account = null, IEnumerable<Claim> claims = null)
+        public virtual TAccount CreateAccount(string tenant, string username, string password, string email = null, Guid? id = null, DateTime? dateCreated = null, TAccount account = null, IEnumerable<Claim> claims = null)
         {
             if (Configuration.EmailIsUsername)
             {
@@ -459,7 +459,10 @@ namespace BrockAllen.MembershipReboot
             account = account ?? CreateUserAccount();
             Init(account, tenant, username, password, email, id, dateCreated, claims);
 
-            ValidateEmail(account, email);
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                ValidateEmail(account, email);
+            }
             ValidateUsername(account, username);
             ValidatePassword(account, password);
 
