@@ -69,7 +69,7 @@ namespace BrockAllen.MembershipReboot.Ef
             var q =
                 from a in items
                 from la in a.LinkedAccountCollection
-                where la.ProviderName == provider && la.ProviderAccountID == id && a.Tenant == tenant
+                where la.ProviderName == provider && la.ProviderAccountID == id && a.Tenant == tenant && la.DisabledAt == null
                 select a;
             return q.SingleOrDefault();
         }
