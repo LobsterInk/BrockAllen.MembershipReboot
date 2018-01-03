@@ -2759,7 +2759,7 @@ namespace BrockAllen.MembershipReboot
 
             Tracing.Information("[UserAccountService.GetLinkedAccount] called for account ID: {0}", account.ID);
 
-            return account.LinkedAccounts.Where(x => x.ProviderName == provider && x.ProviderAccountID == id).SingleOrDefault();
+            return account.LinkedAccounts.SingleOrDefault(x => x.ProviderName == provider && x.ProviderAccountID == id && x.DisabledAt == null);
         }
 
         public virtual void AddOrUpdateLinkedAccount(TAccount account, string provider, string id, IEnumerable<Claim> claims = null)
