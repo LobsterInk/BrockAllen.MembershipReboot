@@ -12,10 +12,10 @@ namespace BrockAllen.MembershipReboot
     {
         [StringLength(200)]
         [Required]
-        public virtual string ProviderName { get; protected internal set; }
+        public virtual string ProviderName { get; set; }
         [StringLength(100)]
         [Required]
-        public virtual string ProviderAccountID { get; protected internal set; }
+        public virtual string ProviderAccountID { get; set; }
 
         public virtual DateTime LastLogin { get; protected internal set; }
 
