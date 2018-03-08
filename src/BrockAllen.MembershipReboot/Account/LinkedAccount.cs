@@ -17,7 +17,7 @@ namespace BrockAllen.MembershipReboot
         [Required]
         public virtual string ProviderAccountID { get; set; }
 
-        public virtual DateTime LastLogin { get; protected internal set; }
+        public virtual DateTime? LastLogin { get; set; }
 
         public DateTime? DisabledAt { get; set; }
 
